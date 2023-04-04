@@ -1,0 +1,3 @@
+interface BasketState {
+  items: any[];
+}
