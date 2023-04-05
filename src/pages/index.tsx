@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from '../components/Header';
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
             initial-scale=1" name="viewport" />
             <link rel="icon" href="/super.ico" />
         </Head>
-        <h1>This is the new store</h1>
+        <Header/>
     </div>
   )
 }
