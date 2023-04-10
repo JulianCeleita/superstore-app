@@ -1,9 +1,9 @@
-import Image from "next/image";
 import {
-  ShoppingCartIcon,
-  MagnifyingGlassIcon,
-  Bars4Icon,
+    Bars4Icon,
+    MagnifyingGlassIcon,
+    ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 function Header() {
   return (

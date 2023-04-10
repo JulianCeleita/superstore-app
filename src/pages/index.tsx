@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Header from '../components/Header';
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gray-100">
         <Head>
             <title>Super Store</title>
             <meta content="width=device-width,
@@ -11,6 +12,10 @@ export default function Home() {
             <link rel="icon" href="/super.ico" />
         </Head>
         <Header/>
+        <main className="max-w-screen-xl mx-auto">
+          <Banner/>
+          {/* Products */}
+        </main>
     </div>
   )
 }
