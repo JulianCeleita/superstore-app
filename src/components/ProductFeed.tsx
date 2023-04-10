@@ -3,7 +3,7 @@ import Product from "./Product"
 function ProductFeed({products}:ProductProps) {
   return (
     <div>
-        {products.map(({id, title, price, description, category, image})=>(
+        {products.map(({id, title, price, description, category, image, rating})=>(
             <Product
                 key={id}
                 id={id}
@@ -12,6 +12,7 @@ function ProductFeed({products}:ProductProps) {
                 description={description}
                 category={category}
                 image={image}
+                rating={rating}
             />
         ))}
     </div>
