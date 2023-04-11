@@ -1,14 +1,22 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
+import Currency from "react-currency-formatter";
 
 const MAX_RATING = 5;
 const MIN_RATING = 4;
 
 function Product({ id, title, price, description, category, image }: Product) {
-  const [rating] = useState(
-    Math.floor(Math.random()*(MAX_RATING - MIN_RATING + 1)) + MIN_RATING
-  );
+  const [rating, setRating] = useState(1);
+
+  const [hasSale, setHasSale] = useState(true);
+
+  useEffect(() => {
+    setRating(
+      Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+    );
+    setHasSale(Math.random() < 0.5);
+  }, []);
 
   return (
     <div>
@@ -28,6 +36,17 @@ function Product({ id, title, price, description, category, image }: Product) {
             <StarIcon className="h-5 text-amber-600" />
           ))}
       </div>
+      <p>{description}</p>
+      <div>
+        <Currency quantity={price} currency="COP" />
+      </div>
+      {hasSale && (
+        <div>
+          <img src="sale.png" alt="sale" />
+          <p>FREE Next-day Delivery</p>
+        </div>
+      )}
+      <button>Add to Basket</button>
     </div>
   );
 }
