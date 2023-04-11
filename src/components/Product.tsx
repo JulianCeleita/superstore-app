@@ -19,16 +19,16 @@ function Product({ id, title, price, description, category, image }: Product) {
   }, []);
 
   return (
-    <div>
-      <p>{category}</p>
+    <div className="relative flex flex-col m-5 bg-white z-30 p-10">
+      <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
       <Image
         src={image}
         height={200}
         width={200}
         alt={title}
-        style={{ objectFit: "contain" }}
+        className="object-contain object-center h-48 w-full"
       />
-      <h4>{title}</h4>
+      <h4 className="my-3">{title}</h4>
       <div className="flex">
         {Array(rating)
           .fill(null)
@@ -36,17 +36,17 @@ function Product({ id, title, price, description, category, image }: Product) {
             <StarIcon className="h-5 text-amber-600" />
           ))}
       </div>
-      <p>{description}</p>
-      <div>
-        <Currency quantity={price} currency="COP" />
+      <p className="text-xs my-2 line-clamp-2">{description}</p>
+      <div className="mb-2">
+        <Currency quantity={price} currency="COP"/>
       </div>
       {hasSale && (
-        <div>
-          <img src="sale.png" alt="sale" />
-          <p>FREE Next-day Delivery</p>
+        <div className="flex items-center space-x-2">
+          <img src="sale.png" alt="sale" className="w-10"/>
+          <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
         </div>
       )}
-      <button>Add to Basket</button>
+      <button className="button mt-1">Add to Basket</button>
     </div>
   );
 }
