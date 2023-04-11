@@ -42,11 +42,11 @@ function Product({ id, title, price, description, category, image }: Product) {
       </div>
       {hasSale && (
         <div className="flex items-center space-x-2">
-          <img src="sale.png" alt="sale" className="w-10"/>
-          <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
+          <img src="sale.png" alt="sale" className="w-10 mb-1"/>
+          <p className="text-xs text-gray-500">20% OFF buying now!</p>
         </div>
       )}
-      <button className="button mt-1">Add to Basket</button>
+      <button className="button mt-auto">Add to Basket</button>
     </div>
   );
 }
