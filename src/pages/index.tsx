@@ -36,5 +36,3 @@ export async function getServerSideProps(context:GetServerSidePropsContext):Prom
     }
   }
 }
-
-// GET--> https://fakestoreapi.com/products
