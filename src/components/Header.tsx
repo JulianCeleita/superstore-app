@@ -5,15 +5,18 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { useRouter } from "next/router";
 
 function Header() {
 const {data: session} = useSession();
+const router = useRouter();
 
   return (
     <header>
       <div className="flex items-center bg-store_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
+          onClick={()=>router.push('/')}
             alt="logo"
             src="/logo.png"
             width={150}
