@@ -45,7 +45,7 @@ const router = useRouter();
             <p>Devoluciones</p>
             <p className="font-extrabold md:text-sm">y Ordenes</p>
           </div>
-          <div className="relative flex link items-center">
+          <div onClick={()=>router.push('/checkout')} className="relative flex link items-center">
             <span className="absolute top-0 right-0 md:right-11 h-4 w-4 bg-amber-600 text-center rounded-full font-bold text-black">
               0
             </span>
