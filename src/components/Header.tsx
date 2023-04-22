@@ -6,10 +6,13 @@ import {
 import Image from "next/image";
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from '../slices/basketSlices';
 
 function Header() {
 const {data: session} = useSession();
 const router = useRouter();
+const items = useSelector(selectItems)
 
   return (
     <header>
@@ -47,7 +50,7 @@ const router = useRouter();
           </div>
           <div onClick={()=>router.push('/checkout')} className="relative flex link items-center">
             <span className="absolute top-0 right-0 md:right-11 h-4 w-4 bg-amber-600 text-center rounded-full font-bold text-black">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm">
