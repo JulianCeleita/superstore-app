@@ -25,7 +25,7 @@ function CheckoutProduct({
       category,
       image,
       hasSale,
-    };
+    }; 
     dispatch(addToBasket(product));
   };
   const removeItemFromBasket = () => {
