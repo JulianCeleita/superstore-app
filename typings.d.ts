@@ -17,8 +17,9 @@ interface Product {
   description: string;
   category: string;
   image: string;
+  hasSale: string;
   rating: {
     rate: number;
     count: number;
-  };
+  } | null ;
 }

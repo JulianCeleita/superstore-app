@@ -26,6 +26,8 @@ function Product({ id, title, price, description, category, image }: Product) {
       id,
       title,
       price,
+      rating,
+      hasSale,
       description,
       category,
       image,
