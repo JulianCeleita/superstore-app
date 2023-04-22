@@ -17,7 +17,7 @@ interface Product {
   description: string;
   category: string;
   image: string;
-  hasSale: string;
+  hasSale?: boolean;
   rating: {
     rate: number;
     count: number;
