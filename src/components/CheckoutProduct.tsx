@@ -7,18 +7,30 @@ import { addToBasket, removeFromBasket } from "@/slices/basketSlices";
 function CheckoutProduct({
   id,
   title,
-  rating,
   price,
+  rating,
   description,
   category,
   image,
   hasSale,
 }: Product) {
-
-    const dispatch = useDispatch();
-    const addItemToBasket = () => {
-        
-    }
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      rating,
+      description,
+      category,
+      image,
+      hasSale,
+    };
+    dispatch(addToBasket(product));
+  };
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket({id}))
+  }
 
   return (
     <div className="grid grid-cols-5">
@@ -48,8 +60,10 @@ function CheckoutProduct({
         )}
       </div>
       <div className="flex flex-col space-y-2 my-auto justify-self-end">
-        <button className="button" onClick={addItemToBasket}>Go to pay</button>
-        <button className="button">Remove from basket</button>
+        <button className="button" onClick={addItemToBasket}>
+          Add one more
+        </button>
+        <button className="button" onClick={removeItemFromBasket}>Remove from basket</button>
       </div>
     </div>
   );
