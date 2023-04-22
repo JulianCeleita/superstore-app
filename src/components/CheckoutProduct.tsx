@@ -1,8 +1,8 @@
-import Image from "next/image";
+import { addToBasket, removeFromBasket } from "@/slices/basketSlices";
 import { StarIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
-import { addToBasket, removeFromBasket } from "@/slices/basketSlices";
 
 function CheckoutProduct({
   id,

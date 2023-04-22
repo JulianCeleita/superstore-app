@@ -23,15 +23,15 @@ export const basketSlice = createSlice({
           `Can't remove product (id: ${action.payload.id}) as its not in the basket`
         );
       }
-      state.items=newBasket;
+      state.items = newBasket;
     },
   },
 });
 
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
-
-//TODO selectors - this is how we pull information from the Global store slice
 export const selectItems = (state: { basket: BasketState }) =>
   state.basket.items;
+export const selectTotal = (state: { basket: BasketState }) =>
+  state.basket.items.reduce((total, item) => total + item.price, 0);
 
 export default basketSlice.reducer;

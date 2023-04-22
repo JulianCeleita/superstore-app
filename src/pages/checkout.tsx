@@ -1,14 +1,15 @@
+import CheckoutProduct from "@/components/CheckoutProduct";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Currency from "react-currency-formatter";
 import { useSelector } from "react-redux";
 import Header from "../components/Header";
-import Image from "next/image";
-import { selectItems } from "../slices/basketSlices";
-import CheckoutProduct from "@/components/CheckoutProduct";
-import Currency from "react-currency-formatter";
-import { useSession } from "next-auth/react";
+import { selectItems, selectTotal } from "../slices/basketSlices";
 
 function Checkout() {
   const items = useSelector(selectItems);
-  const {data: session} = useSession();
+  const total = useSelector(selectTotal);
+  const { data: session } = useSession();
 
   return (
     <div className="bg-gray-500">
@@ -20,7 +21,7 @@ function Checkout() {
             width={1020}
             height={250}
             alt="cuerobanner"
-            className="md:col-span-full mt-2 mb-1 flex-grow shadow-sm"
+            className="md:col-span-full flex-grow shadow-sm"
           />
 
           <div className="flex flex-col p-5 space-y-10 bg-white">
@@ -44,16 +45,22 @@ function Checkout() {
             ))}
           </div>
         </div>
-        <div>
+        <div className="flex flex-col mt-3 bg-white p-10 shadow-md md:mx-1 md:my-3">
           {items.length > 0 && (
             <>
               <h2 className="whitespace-nowrap">
-                Subtotal ({items.length} items):
+                Subtotal ({items.length} items):{" "}
                 <span className="font-bold">
-                  <Currency quantity={0} currency="COP" />
+                  <Currency quantity={total} currency="COP" />
                 </span>
               </h2>
-              <button className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
+              <button
+                disabled={!session}
+                className={`button mt-2 ${
+                  !session &&
+                  "from-gray-400 to-gray-600 border-gray-200 text-gray-300 cursor-not-allowed active:from-gray-400 active:to-gray-700"
+                }`}
+              >
                 {!session ? "Sign in to checkout" : "Proceed to checkout"}
               </button>
             </>
