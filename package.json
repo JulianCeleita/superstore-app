@@ -30,6 +30,7 @@
     "stripes": "^0.0.82"
   },
   "devDependencies": {
+    "@types/linkify-it": "^3.0.2",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-currency-formatter": "^1.1.4",

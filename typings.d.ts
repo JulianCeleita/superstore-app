@@ -21,7 +21,7 @@ interface Product {
   rating: {
     rate: number;
     count: number;
-  } | null ;
+  } | null;
 }
 
 interface CheckoutItem {
@@ -35,4 +35,13 @@ interface CheckoutItem {
       images: string[];
     };
   };
+}
+
+interface SessionPay {
+  metadata: {
+    email: string;
+    images: string;
+  };
+  id: string;
+  amount_total: number;
 }
