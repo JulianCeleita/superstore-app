@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     shipping_address_collection: {
-      allowed_countries: ["GB", "US", "CA"],
+      allowed_countries: ["GB", "US", "CA", "CO"],
     },
     line_items: transformedItems,
     mode: "payment",
