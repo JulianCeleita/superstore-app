@@ -2,7 +2,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 
-function Success() {
+function Success(): JSX.Element {
   const router = useRouter();
 
   return (

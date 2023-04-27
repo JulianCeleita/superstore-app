@@ -18,10 +18,7 @@ interface Product {
   category: string;
   image: string;
   hasSale?: boolean;
-  rating: {
-    rate: number;
-    count: number;
-  } | null;
+  rating: number | null;
 }
 
 interface CheckoutItem {

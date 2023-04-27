@@ -14,16 +14,16 @@ function Banner() {
         interval={5000}
       >
         <div className="h-96 flex justify-center items-center">
-          <img loading="lazy" src="carousel/carousel1.jpg" alt="carousel1"/>
+          <img loading="lazy" src="carousel/carousel1.jpg" alt="carousel1" />
         </div>
         <div className="h-96 flex justify-center items-center">
-          <img loading="lazy" src="carousel/carousel2.jpg" alt="carousel2"/>
+          <img loading="lazy" src="carousel/carousel2.jpg" alt="carousel2" />
         </div>
         <div className="h-96 flex justify-center items-center">
-          <img loading="lazy" src="carousel/carousel3.jpg" alt="carousel3"/>
+          <img loading="lazy" src="carousel/carousel3.jpg" alt="carousel3" />
         </div>
         <div className="h-96 flex justify-center items-center">
-          <img loading="lazy" src="carousel/carousel4.jpg" alt="carousel4"/>
+          <img loading="lazy" src="carousel/carousel4.jpg" alt="carousel4" />
         </div>
       </Carousel>
     </div>

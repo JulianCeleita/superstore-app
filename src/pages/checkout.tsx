@@ -1,18 +1,18 @@
 import CheckoutProduct from "@/components/CheckoutProduct";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Currency from "react-currency-formatter";
 import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import { selectItems, selectTotal } from "../slices/basketSlices";
-import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
 
 const stripePromise = loadStripe(process.env.stripe_public_key!);
 
 function Checkout() {
-  const items = useSelector(selectItems);
-  const total = useSelector(selectTotal);
+  const items: Product[] = useSelector(selectItems);
+  const total: number = useSelector(selectTotal);
   const { data: session } = useSession();
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;

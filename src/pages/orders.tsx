@@ -1,9 +1,9 @@
-import { getSession, useSession } from "next-auth/react";
-import Header from "../components/Header";
-import db from "../../firebase";
+import OrderItem from "@/components/OrderItem";
 import moment from "moment";
 import { GetServerSidePropsContext } from "next";
-import OrderItem from "@/components/OrderItem";
+import { getSession, useSession } from "next-auth/react";
+import db from "../../firebase";
+import Header from "../components/Header";
 
 function Orders({ orders }: OrdersProps) {
   const { data: session } = useSession();
@@ -23,13 +23,13 @@ function Orders({ orders }: OrdersProps) {
         )}
         <div className="mt-5 space-y-4">
           {orders?.map(({ id, amount, items, timestamp, images }) => (
-            <OrderItem 
-                key={id}
-                id={id}
-                amount={amount}
-                items={items}
-                timestamp={timestamp}
-                images={images}
+            <OrderItem
+              key={id}
+              id={id}
+              amount={amount}
+              items={items}
+              timestamp={timestamp}
+              images={images}
             />
           ))}
         </div>
@@ -52,7 +52,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // TODO Firebase db
   const stripeOrders = await db
     .collection("users")
-    .doc(session.user.email)
+    .doc(session.user?.email as any)
     .collection("orders")
     .orderBy("timestamp", "desc")
     .get();

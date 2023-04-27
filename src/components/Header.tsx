@@ -1,25 +1,25 @@
 import {
-    Bars4Icon,
-    MagnifyingGlassIcon,
-    ShoppingCartIcon,
+  Bars4Icon,
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { selectItems } from '../slices/basketSlices';
+import { selectItems } from "../slices/basketSlices";
 
 function Header() {
-const {data: session} = useSession();
-const router = useRouter();
-const items = useSelector(selectItems)
+  const { data: session } = useSession();
+  const router = useRouter();
+  const items = useSelector(selectItems);
 
   return (
     <header>
       <div className="flex items-center bg-store_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
-          onClick={()=>router.push('/')}
+            onClick={() => router.push("/")}
             alt="logo"
             src="/logo.png"
             width={150}
@@ -38,17 +38,21 @@ const items = useSelector(selectItems)
         </div>
 
         <div className="text-white flex justify-between items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div onClick={()=> !session ? signIn() : signOut()} className="link">
-            <p>
-              {session ? `Hello, ${session.user?.name}` : 'Sign in'}
-            </p>
+          <div
+            onClick={() => (!session ? signIn() : signOut())}
+            className="link"
+          >
+            <p>{session ? `Hello, ${session.user?.name}` : "Sign in"}</p>
             <p className="font-extrabold md:text-sm">Cuenta y Listas</p>
           </div>
-          <div onClick={()=>router.push('/orders')} className="link">
+          <div onClick={() => router.push("/orders")} className="link">
             <p>Devoluciones</p>
             <p className="font-extrabold md:text-sm">y Ordenes</p>
           </div>
-          <div onClick={()=>router.push('/checkout')} className="relative flex link items-center">
+          <div
+            onClick={() => router.push("/checkout")}
+            className="relative flex link items-center"
+          >
             <span className="absolute top-0 right-0 md:right-11 h-4 w-4 bg-amber-600 text-center rounded-full font-bold text-black">
               {items.length}
             </span>

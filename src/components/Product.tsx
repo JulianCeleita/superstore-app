@@ -1,17 +1,17 @@
+import { addToBasket } from "@/slices/basketSlices";
+import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { StarIcon } from "@heroicons/react/24/solid";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
-import { addToBasket } from "@/slices/basketSlices";
 
 const MAX_RATING = 5;
 const MIN_RATING = 4;
 
 function Product({ id, title, price, description, category, image }: Product) {
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState<number>(1);
 
-  const [hasSale, setHasSale] = useState(true);
+  const [hasSale, setHasSale] = useState<boolean>(true);
 
   useEffect(() => {
     setRating(
@@ -65,7 +65,9 @@ function Product({ id, title, price, description, category, image }: Product) {
           <p className="text-xs text-gray-500">20% OFF buying now!</p>
         </div>
       )}
-      <button onClick={addItemToBasket} className="button mt-auto">Add to Basket</button>
+      <button onClick={addItemToBasket} className="button mt-auto">
+        Add to Basket
+      </button>
     </div>
   );
 }

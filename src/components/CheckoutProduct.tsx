@@ -16,7 +16,7 @@ function CheckoutProduct({
 }: Product) {
   const dispatch = useDispatch();
   const addItemToBasket = () => {
-    const product = {
+    const product: Product = {
       id,
       title,
       price,
@@ -25,7 +25,7 @@ function CheckoutProduct({
       category,
       image,
       hasSale,
-    }; 
+    };
     dispatch(addToBasket(product));
   };
   const removeItemFromBasket = () => {
@@ -47,7 +47,7 @@ function CheckoutProduct({
           {Array(rating)
             .fill(null)
             .map((_, i) => (
-              <StarIcon className="h-5 text-amber-600" />
+              <StarIcon key={i} className="h-5 text-amber-600" />
             ))}
         </div>
         <p className="text-xs my-2 line-clamp-3">{description}</p>
