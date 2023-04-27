@@ -44,7 +44,7 @@ const items = useSelector(selectItems)
             </p>
             <p className="font-extrabold md:text-sm">Cuenta y Listas</p>
           </div>
-          <div className="link">
+          <div onClick={()=>router.push('/orders')} className="link">
             <p>Devoluciones</p>
             <p className="font-extrabold md:text-sm">y Ordenes</p>
           </div>
