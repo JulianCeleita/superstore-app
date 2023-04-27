@@ -45,3 +45,15 @@ interface SessionPay {
   id: string;
   amount_total: number;
 }
+
+interface Order {
+  id: string;
+  amount: number;
+  images: string[];
+  timestamp: number;
+  items: any[];
+}
+
+interface OrdersProps {
+  orders: Order[];
+}
